@@ -14,7 +14,7 @@
 
 function fizzBuzz(n) {
   let numbers = [];
-  for (let index = 0; index < n; index++) {
+  for (let index = 1; index <= n; index++) {
     numbers.push(index);
   }
 
