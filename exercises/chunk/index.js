@@ -8,6 +8,24 @@
 // chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
+/*
+  SOLUTION #2
+  array.slice(startIndex, endIndex) endIndex is exclusive
+*/
+function chunk(array, size) {
+  const chunked = [];
+  let index = 0;
+
+  while (index < array.length) {
+    chunked.push(array.slice(index, index + size));
+    index += size;
+  }
+
+  return chunked;
+}
+
+module.exports = chunk;
+
 /* 
   SOLUTION #1
   unchunked array is sent to you
@@ -20,6 +38,7 @@
       push the present element to it.
    - Once the 'chunked array' is filled, return it.
 */
+/*
 function chunk(array, size) {
   const chunked = [];
 
@@ -35,7 +54,4 @@ function chunk(array, size) {
 
   return chunked;
 }
-
-chunk([1, 2, 3, 4], 2)
-
-module.exports = chunk;
+*/
