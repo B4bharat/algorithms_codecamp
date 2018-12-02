@@ -15,6 +15,43 @@
 function createCharMap(completeString) {
   let charMap = {};
 
+  for (const char of completeString.replace(/[^\w]/g, "").toLowerCase()) {
+    if(charMap[char]) {
+      charMap[char]++;
+    } else {
+      charMap[char] = 1;
+    }
+  }
+
+  return charMap;
+}
+
+function anagrams(stringA, stringB) {
+  const charMapA = createCharMap(stringA);
+  const charMapB = createCharMap(stringB);
+
+  if(Object.keys(charMapA).length !== Object.keys(charMapB).length) {
+    return false;
+  }
+
+  for (const char in charMapA) {
+    if(charMapB[char] !== charMapA[char]) {
+      return false
+    }
+  }
+
+  return true;
+}
+
+console.log(anagrams('RAIL! SAFETY!', 'fairy tales'))
+console.log(anagrams('Hi there', 'Bye there'))
+
+module.exports = anagrams;
+
+/*
+function createCharMap(completeString) {
+  let charMap = {};
+
   for (const char of completeString) {
     if(charMap[char]) {
       charMap[char]++;
@@ -56,8 +93,4 @@ function anagrams(stringA, stringB) {
     return false
   }
 }
-
-console.log(anagrams('RAIL! SAFETY!', 'fairy tales'))
-console.log(anagrams('Hi there', 'Bye there'))
-
-module.exports = anagrams;
+*/
