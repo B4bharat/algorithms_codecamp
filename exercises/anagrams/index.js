@@ -12,41 +12,56 @@
   Regular expression
     for removing all space and special characters - /^\w/
 */
-function createCharMap(completeString) {
-  let charMap = {};
-
-  for (const char of completeString.replace(/[^\w]/g, "").toLowerCase()) {
-    if(charMap[char]) {
-      charMap[char]++;
-    } else {
-      charMap[char] = 1;
-    }
-  }
-
-  return charMap;
-}
 
 function anagrams(stringA, stringB) {
-  const charMapA = createCharMap(stringA);
-  const charMapB = createCharMap(stringB);
-
-  if(Object.keys(charMapA).length !== Object.keys(charMapB).length) {
-    return false;
-  }
-
-  for (const char in charMapA) {
-    if(charMapB[char] !== charMapA[char]) {
-      return false
-    }
-  }
-
-  return true;
+  return cleanString(stringA) === cleanString(stringB);
 }
 
-console.log(anagrams('RAIL! SAFETY!', 'fairy tales'))
-console.log(anagrams('Hi there', 'Bye there'))
+function cleanString(str) {
+  return str
+          .replace(/[^\w]/g, '') // Removes the special characters in a string
+          .toLowerCase() // converts the string to lowercase
+          .split('') // splits the string into an array of characters
+          .sort() // sorts the array
+          .join(''); // joins the characters back to form a string
+}
 
 module.exports = anagrams;
+
+
+// function createCharMap(completeString) {
+//   let charMap = {};
+
+//   for (const char of completeString.replace(/[^\w]/g, "").toLowerCase()) {
+//     if(charMap[char]) {
+//       charMap[char]++;
+//     } else {
+//       charMap[char] = 1;
+//     }
+//   }
+
+//   return charMap;
+// }
+
+// function anagrams(stringA, stringB) {
+//   const charMapA = createCharMap(stringA);
+//   const charMapB = createCharMap(stringB);
+
+//   if(Object.keys(charMapA).length !== Object.keys(charMapB).length) {
+//     return false;
+//   }
+
+//   for (const char in charMapA) {
+//     if(charMapB[char] !== charMapA[char]) {
+//       return false
+//     }
+//   }
+
+//   return true;
+// }
+
+// console.log(anagrams('RAIL! SAFETY!', 'fairy tales'))
+// console.log(anagrams('Hi there', 'Bye there'))
 
 /*
 function createCharMap(completeString) {
