@@ -17,6 +17,31 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+// Solution #1: Appropriate, but fails the tests
+function steps(n) {
+  // 2
+  // 1st iteration - 1# (2-1) space
+  // 2nd iteration - 2# (2-2) space
+  
+  // 3
+  // 1st iteration - 1# (3-1) space
+  // 2nd iteration - 2# (3-2) space
+  // 3rd iteration - 3# (3-3) space
+
+  // 4
+  // 1st iteration - 1# (4-1) space
+  // 2nd iteration - 2# (4-2) space
+  let stepsArray = [];
+  for (let index = 1; index <= n; index++) {
+    const hash = "#";
+    const spaceChar = " ";
+    const newLineChar = "\n";
+
+    const stepLine = hash.repeat(index) + spaceChar.repeat(n-index) + newLineChar;
+    stepsArray.push(stepLine)
+  }
+
+  return stepsArray.join('');
+}
 
 module.exports = steps;
