@@ -17,6 +17,26 @@
 //       '### '
 //       '####'
 
+//Solution #2: compliant with test cases
+function steps(n) {
+  for (let row = 0; row < n; row++) {
+    let stair = '';
+    
+    for (let column = 0; column < n; column++) {
+      if (column <= row) {
+        stair += '#';
+      } else {
+        stair += ' ';
+      }
+    }
+
+    console.log(stair)
+  }
+}
+
+module.exports = steps;
+
+/*
 // Solution #1: Appropriate, but fails the tests
 function steps(n) {
   // 2
@@ -43,5 +63,4 @@ function steps(n) {
 
   return stepsArray.join('');
 }
-
-module.exports = steps;
+*/
