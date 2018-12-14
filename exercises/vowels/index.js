@@ -8,12 +8,31 @@
 //   vowels('Why?') --> 0
 
 function vowels(str) {
-  /*
+  let vowelCounter = 0;
+  let vowelList = ['a', 'e', 'i', 'o', 'u'];
+
+  for (const char of str.toLowerCase()) {
+    if (vowelList.includes(char)) {
+      vowelCounter++;
+    }
+  }
+
+  return vowelCounter++;
+}
+
+vowels('Why?')
+
+module.exports = vowels;
+
+/*
+Solution #2: Better Version
+function vowels(str) {
+  
     - convert your string to array of chars
     - loop through your array of chars and check if the current character is 'a' or 'e' or 'i' or 'o' or 'u'
     - if so, increment the counter
     - post looping return the counter
-  */
+  
  let vowelCounter = 0;
 
  let arrayOfChars = str.split('');
@@ -23,10 +42,6 @@ function vowels(str) {
    }
  });
 
- console.log(vowelCounter);
  return vowelCounter;
 }
-
-vowels('Why?')
-
-module.exports = vowels;
+*/
