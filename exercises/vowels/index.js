@@ -8,6 +8,23 @@
 //   vowels('Why?') --> 0
 
 function vowels(str) {
+  const matches = str.match(/[aeiou]/gi);
+  /*
+    - 'match' method returns an array of matches if found, if nothing is found/matched, it returns null
+    - '[]' indicates that let us know if any of the characters from inside the bracket is found
+    - 'g': global, keep on searching even if one match is found
+    - 'i': do a case insensitive search
+  */
+  return matches ? matches.length : 0;
+}
+
+console.log(vowels('Hi There!'))
+
+module.exports = vowels;
+
+/*
+Solution #2: Better iterative solution with array.includes
+function vowels(str) {
   let vowelCounter = 0;
   let vowelList = ['a', 'e', 'i', 'o', 'u'];
 
@@ -19,13 +36,10 @@ function vowels(str) {
 
   return vowelCounter++;
 }
-
-vowels('Why?')
-
-module.exports = vowels;
+*/
 
 /*
-Solution #2: Better Version
+Solution #1: Iterative solution
 function vowels(str) {
   
     - convert your string to array of chars
