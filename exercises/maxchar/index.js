@@ -8,11 +8,11 @@
 function maxChar(str) {
   const chars = {};
 
-  for (const char of string) {
+  for (const char of str) {
     if(!chars[char]) {
       chars[char] = 1;
     } else {
-      chars[char]++
+      chars[char]++;
     }
   }
 
@@ -22,11 +22,11 @@ function maxChar(str) {
   for (const char in chars) {
     if(chars[char] > mostChars) {
       mostChars = chars[char];
-      highestCharacterName = char
+      highestCharacterName = char;
     }
   }
 
-  return highestCharacterName
+  return highestCharacterName;
 }
 
 module.exports = maxChar;
