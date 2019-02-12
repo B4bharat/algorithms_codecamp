@@ -18,7 +18,7 @@ function vowels(str) {
   return matches ? matches.length : 0;
 }
 
-console.log(vowels('Hi There!'))
+console.log(vowels('Hi There!'));
 
 module.exports = vowels;
 

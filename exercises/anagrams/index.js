@@ -13,10 +13,6 @@
     for removing all space and special characters - /^\w/
 */
 
-function anagrams(stringA, stringB) {
-  return cleanString(stringA) === cleanString(stringB);
-}
-
 function cleanString(str) {
   return str
           .replace(/[^\w]/g, '') // Removes the special characters in a string
@@ -24,6 +20,10 @@ function cleanString(str) {
           .split('') // splits the string into an array of characters
           .sort() // sorts the array
           .join(''); // joins the characters back to form a string
+}
+
+function anagrams(stringA, stringB) {
+  return cleanString(stringA) === cleanString(stringB);
 }
 
 module.exports = anagrams;
