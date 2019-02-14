@@ -21,7 +21,7 @@ function capitalize(str) {
   return result;
 }
 
-capitalize("hello everyone")
+capitalize("hello everyone");
 
 module.exports = capitalize;
 
