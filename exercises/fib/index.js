@@ -16,6 +16,9 @@ function fib(n) {
   return fib(n - 1) + fib(n - 2);
 }
 
+const result = fib(2)
+console.log(result)
+
 module.exports = fib;
 
 // function fib(n) {
