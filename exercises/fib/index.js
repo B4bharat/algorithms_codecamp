@@ -8,6 +8,11 @@
 // Example:
 //   fib(4) === 3
 
+/*
+  Recursive Solution:
+  - if the asked index is less than 2, return the index directly
+  - else call the fibo function with (n - 1) and (n - 2) and add them both
+*/
 function fib(n) {
   if (n < 2) {
     return n;
@@ -21,6 +26,12 @@ console.log(result)
 
 module.exports = fib;
 
+/*
+  Iterative Solution:
+  - Create a 'Result' Array with the first two numbers[0,1] in the series already added
+  - Loop from index = 2 to n and add (i - 1) with (i - 2) and push it to the 'Result' Array
+  - return the result array with the index number entered in the function parameter
+*/
 // function fib(n) {
 //   const result = [0, 1];
 
