@@ -32,7 +32,7 @@ function slowFib(n) {
 }
 
 const fib = memoize(slowFib)
-const result = fib(85)
+const result = fib(5)
 console.log(result)
 
 module.exports = fib;
