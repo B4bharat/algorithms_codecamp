@@ -8,12 +8,41 @@
 // Example:
 //   fib(4) === 3
 
+function memoize(fn) {
+  const cache = {};
+
+  return function (...args) {
+    if (cache[args]) {
+      return cache[args];
+    }
+
+    let result = fn.apply(this, args);
+    cache[args] = result;
+
+    return cache[args];
+  }
+}
+
+function slowFib(n) {
+  if (n < 2) {
+    return n;
+  }
+
+  return fib(n - 1) + fib(n - 2);
+}
+
+const fib = memoize(slowFib)
+const result = fib(85)
+console.log(result)
+
+module.exports = fib;
+
 /*
   Recursive Solution:
   - if the asked index is less than 2, return the index directly
   - else call the fibo function with (n - 1) and (n - 2) and add them both
 */
-function fib(n) {
+/*function fib(n) {
   if (n < 2) {
     return n;
   }
@@ -22,9 +51,7 @@ function fib(n) {
 }
 
 const result = fib(2)
-console.log(result)
-
-module.exports = fib;
+console.log(result)*/
 
 /*
   Iterative Solution:
