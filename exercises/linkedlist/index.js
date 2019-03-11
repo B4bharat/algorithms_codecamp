@@ -9,6 +9,23 @@ class Node {
   }
 }
 
-class LinkedList {}
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+
+  insertFirst(data) {
+    // Creates a new Node which links with the node present at the head
+    const node = new Node(data, this.head);
+
+    // Detaches the original head Node and attaches it to the new Node
+    /**
+     *      LinkedList L
+     *        head
+     *    Node N2 (data, Node N1 ref) -> Node N1 (data, reference)
+     */
+    this.head = node;
+  }
+}
 
 module.exports = { Node, LinkedList };
