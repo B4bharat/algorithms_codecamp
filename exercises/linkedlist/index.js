@@ -70,22 +70,28 @@ class LinkedList {
   }
 
   removeLast() {
+    // If there is no nodes at all, then simply return
     if (!this.head) {
       return;
     }
 
+    // If there is only one node in the list
     if (!this.head.next) {
       this.head = null;
       return;
     }
 
+    // Create two pointers
+    // 'previous' pointer will always trail behind 'node' pointer
     let previous = this.head;
     let node = this.head.next;
+    // keep checking if the pointer that is ahead ('node') has a next reference to go to, if so, make the 'previous', the new node
     while (node.next) {
       previous = node;
       node = node.next;
     }
 
+    // Ultimately 'previous' will point to the second last node in the linked list, all we need to do is deference the second last, so that the last one is removed
     previous.next = null;
   }
 
@@ -95,6 +101,7 @@ class LinkedList {
      if (last) {
        last.next = new Node(data);
      } else {
+       // Condition wherein there is no node in the list
        this.head = new Node(data);
      }
   }
