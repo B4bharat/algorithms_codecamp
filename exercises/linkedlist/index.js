@@ -125,6 +125,24 @@ class LinkedList {
     // Case in which the index that is asked for is beyond the size of the linked list
     return null;
   }
+
+  removeAt(index) {
+    if (this.head) {
+      return;
+    }
+
+    if (index === 0) {
+      this.head = this.head.next;
+      return;
+    }
+
+    const previous = this.getAt(index - 1);
+    if (!previous || !previous.next) {
+      return;
+    }
+    
+    previous.next = previous.next.next;
+  }
 }
 
 
