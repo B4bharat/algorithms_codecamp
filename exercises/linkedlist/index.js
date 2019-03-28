@@ -127,7 +127,7 @@ class LinkedList {
   }
 
   removeAt(index) {
-    if (this.head) {
+    if (!this.head) {
       return;
     }
 
@@ -140,7 +140,6 @@ class LinkedList {
     if (!previous || !previous.next) {
       return;
     }
-    
     previous.next = previous.next.next;
   }
 
@@ -160,6 +159,16 @@ class LinkedList {
     const previous = this.getAt(index - 1) || this.getLast();
     const node = new Node(data, previous.next);
     previous.next = node;
+  }
+
+  forEach(fn) {
+    let node = this.head;
+    let counter = 0;
+    while (node) {
+      fn(node, counter);
+      node = node.next;
+      counter++;
+    }
   }
 }
 
