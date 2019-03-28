@@ -12,6 +12,22 @@
 //   c.next = b;
 //   circular(l) // true
 
-function circular(list) {}
+function circular(list) {
+  let slow = list.getFirst();
+  let fast = list.getFirst();
+
+  while (fast.next && fast.next.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+
+    // if both the variables end up pointing to the same node, then we have a circular node and hence return true
+    if (slow == fast) {
+      return true;
+    }
+  }
+
+  // If we ever get even a single negative value from fast.next or fast.next.next, if either of them is null, we know the list has ended and we know for sure the list is not circular, it ends somewhere. Hence, return false 
+  return false;
+}
 
 module.exports = circular;
