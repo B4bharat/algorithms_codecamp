@@ -25,6 +25,43 @@ class Node {
   }
 }
 
-class Tree {}
+class Tree {
+  constructor() {
+    this.root = null;
+  }
+
+  // Breadth-First Search Traversal
+  traverseBF(fn) {
+    // This Array Keeps track of the traversal, first element that we are filling is the root
+    const traversalArr = [this.root];
+
+    // keep looping until there is an element in the array
+    while (traversalArr.length) {
+      // get the first element of the array
+      const node = traversalArr.shift();
+
+      // push all the children of the first element to the end of the array
+      traversalArr.push(...node.children);
+      // remove the first element of the array
+      fn(node);
+    }
+  }
+
+  // Depth-First Search Traversal
+  traverseDF(fn) {
+    // This Array Keeps track of the traversal, first element that we are filling is the root
+    const traversalArr = [this.root];
+
+    // keep looping until there is an element in the array
+    while (traversalArr.length) {
+      // get the first element of the array
+      const node = traversalArr.shift();
+
+      // push all the children of the first element to the end of the array, this basically makes you travel to the depths of the children
+      traversalArr.unshift(...node.children);
+      fn(node);
+    }
+  }
+}
 
 module.exports = { Tree, Node };
